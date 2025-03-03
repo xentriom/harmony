@@ -16,7 +16,7 @@ export default function LoginPage() {
       </div>
 
       {/* Login Container */}
-      <Card className="z-10 flex flex-row w-[90vw] md:w-full md:max-w-3xl gap-16 p-8 bg-slate-800 rounded-xl overflow-hidden shadow-xl border-none">
+      <Card className="flex flex-row w-[90vw] md:w-full md:max-w-3xl gap-16 p-8 bg-slate-800 rounded-xl overflow-hidden shadow-xl border-none">
         {/* Left Section (Login Form) */}
         <CardContent className="flex flex-col justify-center w-full md:w-3/5 px-0">
           <div className="text-center">
@@ -27,12 +27,12 @@ export default function LoginPage() {
           <div>
             <div className="text-left mb-4">
               <label htmlFor="email" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Email or Phone Number</label>
-              <Input type="email" id="email" className="text-gray-200 bg-gray-700 border-none focus:ring-1 focus:ring-gray-800" />
+              <Input type="email" id="email" className="text-gray-200 bg-gray-700 border-none focus-visible:ring-0" />
             </div>
 
             <div className="text-left mb-2">
               <label htmlFor="password" className="text-gray-300 text-xs mb- block font-semibold uppercase">Password</label>
-              <Input type="password" id="password" className="text-gray-200 bg-gray-700 border-none outline-none focus:ring-1 focus:ring-gray-800" />
+              <Input type="password" id="password" className="text-gray-200 bg-gray-700 border-none outline-none focus-visible:ring-0" />
             </div>
 
             <a href="#" className="text-blue-500 text-sm mb-4 hover:underline block text-left">
