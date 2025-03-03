@@ -1,19 +1,19 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { BrandLogoAndName } from "@/components/brand";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { QrCodeIcon } from "lucide-react";
 
+export const metadata: Metadata = {
+  title: "Harmony",
+};
+
 export default function LoginPage() {
   return (
     <div className="relative h-screen w-full flex items-center justify-center">
       {/* Logo & Name */}
-      <div className="absolute top-5 left-5 text-2xl font-bold">
-        <div className="flex flex-row items-center gap-2">
-          <Image src="/logo.svg" alt="Harmony Logo" width={40} height={40} />
-          <p>Harmony</p>
-        </div>
-      </div>
+      <BrandLogoAndName size={40} />
 
       {/* Login Container */}
       <Card className="flex flex-row w-[90vw] md:w-full md:max-w-3xl gap-16 p-8 bg-slate-800 rounded-xl overflow-hidden shadow-xl border-none">

@@ -1,19 +1,19 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { BrandLogoAndName } from "@/components/brand";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-export default function Register() {
+export const metadata: Metadata = {
+  title: "Harmony",
+};
+
+export default function RegisterPage() {
   return (
     <div className="relative h-screen w-full flex items-center justify-center">
       {/* Logo & Name */}
-      <div className="absolute top-5 left-5 text-2xl font-bold text-white">
-        <div className="flex flex-row items-center gap-2">
-          <Image src="/logo.svg" alt="Harmony Logo" width={40} height={40} />
-          <p>Harmony</p>
-        </div>
-      </div>
+      <BrandLogoAndName size={40} />
 
       {/* Register Container */}
       <Card className="flex flex-col w-[90vw] md:max-w-lg gap-2 p-8 bg-slate-800 rounded-xl shadow-2xl border-none">
