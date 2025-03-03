@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BrandLogoAndName } from "@/components/brand";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -86,14 +87,14 @@ export default function RegisterPage() {
           </div>
 
           <div className="text-center mb-2">
-            <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2">Continue</Button>
+            <Button className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2">Continue</Button>
           </div>
 
           <p className="text-gray-400 text-xs">
-            By registering, you agree to Harmony&apos;s <a href="#" className="text-blue-500 hover:underline">Terms of Service</a> and <a href="#" className="text-blue-500 hover:underline">Privacy Policy</a>.
+            By registering, you agree to Harmony&apos;s <Link href="/terms" className="text-blue-500 hover:underline">Terms of Service</Link> and <Link href="/privacy" className="text-blue-500 hover:underline">Privacy Policy</Link>.
           </p>
 
-          <a href="/login" className="text-xs text-blue-500 hover:underline">Already have an account?</a>
+          <Link href="/login" className="text-xs text-blue-500 hover:underline">Already have an account?</Link>
         </CardContent>
       </Card>
     </div>

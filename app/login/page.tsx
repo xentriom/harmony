@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BrandLogoAndName } from "@/components/brand";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -35,14 +36,14 @@ export default function LoginPage() {
               <Input type="password" id="password" className="text-gray-200 bg-gray-700 border-none outline-none focus-visible:ring-0" />
             </div>
 
-            <a href="#" className="text-blue-500 text-sm mb-4 hover:underline block text-left">
+            <Link href="#" className="text-blue-500 text-sm mb-4 hover:underline block text-left">
               Forgot your password?
-            </a>
+            </Link>
 
-            <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2">Log In</Button>
+            <Button className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2">Log In</Button>
 
             <p className="text-gray-400 text-sm mt-2">
-              Need an account? <a href="/register" className="text-blue-500 hover:underline">Register</a>
+              Need an account? <Link href="/register" className="text-blue-500 hover:underline">Register</Link>
             </p>
           </div>
         </CardContent>
@@ -54,9 +55,9 @@ export default function LoginPage() {
           <p className="text-gray-400 mt-2">
             Scan this with the <b>Harmony mobile app</b> to log in instantly.
           </p>
-          <a href="#" className="text-blue-500 text-sm mt-4 hover:underline">
+          <Link href="#" className="text-blue-500 text-sm mt-4 hover:underline">
             Or, sign in with passkey
-          </a>
+          </Link>
         </CardContent>
       </Card>
     </div>
