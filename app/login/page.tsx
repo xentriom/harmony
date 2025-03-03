@@ -17,8 +17,11 @@ export default function LoginPage() {
       />
 
       {/* Logo & Name */}
-      <div className="absolute top-5 left-5 text-white text-2xl font-bold">
-        Harmony
+      <div className="absolute top-10 left-10 text-white text-2xl font-bold">
+        <div className="flex flex-row items-center gap-2">
+          <Image src="/logo.svg" alt="Harmony Logo" width={40} height={40} />
+          <p>Harmony</p>
+        </div>
       </div>
 
       {/* Login Container */}
@@ -26,8 +29,8 @@ export default function LoginPage() {
         {/* Left Section (Login Form) */}
         <CardContent className="flex flex-col justify-center w-full md:w-3/5 px-0">
           <div className="text-center">
-            <h2 className="text-white text-3xl font-bold">Welcome back!</h2>
-            <p className="text-gray-400 mb-6">We&apos;re so excited to see you again.</p>
+            <h2 className="text-white text-2xl font-bold">Welcome back!</h2>
+            <p className="text-gray-400 text-base mt-2 mb-6">We&apos;re so excited to see you again!</p>
           </div>
 
           <div>
@@ -37,7 +40,7 @@ export default function LoginPage() {
             </div>
 
             <div className="text-left mb-2">
-              <label htmlFor="password" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Password</label>
+              <label htmlFor="password" className="text-gray-300 text-xs mb- block font-semibold uppercase">Password</label>
               <Input type="password" id="password" className="text-gray-300 bg-gray-700 border-none outline-none focus:ring-1 focus:ring-gray-800" />
             </div>
 
@@ -45,16 +48,16 @@ export default function LoginPage() {
               Forgot your password?
             </a>
 
-            <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2">Login</Button>
+            <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2">Log In</Button>
 
-            <p className="text-gray-400 text-sm mt-4">
+            <p className="text-gray-400 text-sm mt-2">
               Need an account? <a href="/register" className="text-blue-500 hover:underline">Register</a>
             </p>
           </div>
         </CardContent>
 
         {/* Right Section (QR Code) */}
-        <div className="hidden w-2/5 md:flex flex-col items-center justify-center text-center">
+        <CardContent className="hidden w-2/5 md:flex flex-col items-center justify-center text-center px-0">
           <QrCodeIcon className="w-40 h-40 text-white" />
           <h3 className="text-white text-xl font-semibold mt-4">Log in with QR Code</h3>
           <p className="text-gray-400 mt-2">
@@ -63,7 +66,7 @@ export default function LoginPage() {
           <a href="#" className="text-blue-500 text-sm mt-4 hover:underline">
             Or, sign in with passkey
           </a>
-        </div>
+        </CardContent>
       </Card>
     </div>
   );
