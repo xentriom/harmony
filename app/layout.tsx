@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Harmony - The best way to chat",
-  description: "Harmony is great for playing games and chatting with friends, or even building a worldwide community.",
+  title: "Harmony - Group Chat That's All Fun & Games",
+  description: "Harmony is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
 };
 
 export default function RootLayout({
