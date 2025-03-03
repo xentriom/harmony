@@ -97,7 +97,7 @@ export default function LoginPage() {
         <CardContent className="flex flex-col justify-center w-12/20 px-0">
           <div className="text-center">
             <h2 className="text-white text-2xl font-bold">Welcome back!</h2>
-            <p className="text-gray-400 text-sm mb-6">We're so excited to see you again.</p>
+            <p className="text-gray-400 text-sm mb-6">We&apos;re so excited to see you again.</p>
           </div>
 
           <div>
