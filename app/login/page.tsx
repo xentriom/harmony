@@ -7,17 +7,8 @@ import { QrCodeIcon } from "lucide-react";
 export default function LoginPage() {
   return (
     <div className="relative h-screen w-full flex items-center justify-center">
-      {/* Background Image */}
-      <Image
-        src="/background.svg"
-        alt="Login Background"
-        fill
-        className="absolute z-0 object-cover object-center"
-        priority
-      />
-
       {/* Logo & Name */}
-      <div className="absolute top-5 left-5 text-white text-2xl font-bold">
+      <div className="absolute top-5 left-5 text-2xl font-bold">
         <div className="flex flex-row items-center gap-2">
           <Image src="/logo.svg" alt="Harmony Logo" width={40} height={40} />
           <p>Harmony</p>
@@ -29,19 +20,19 @@ export default function LoginPage() {
         {/* Left Section (Login Form) */}
         <CardContent className="flex flex-col justify-center w-full md:w-3/5 px-0">
           <div className="text-center">
-            <h2 className="text-white text-2xl font-bold">Welcome back!</h2>
-            <p className="text-gray-400 text-base mt-2 mb-6">We&apos;re so excited to see you again!</p>
+            <h2 className="text-2xl font-bold mb-2">Welcome back!</h2>
+            <p className="text-gray-400 text-base mb-6">We&apos;re so excited to see you again!</p>
           </div>
 
           <div>
             <div className="text-left mb-4">
               <label htmlFor="email" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Email or Phone Number</label>
-              <Input type="email" id="email" className="text-gray-300 bg-gray-700 border-none focus:ring-1 focus:ring-gray-800" />
+              <Input type="email" id="email" className="text-gray-200 bg-gray-700 border-none focus:ring-1 focus:ring-gray-800" />
             </div>
 
             <div className="text-left mb-2">
               <label htmlFor="password" className="text-gray-300 text-xs mb- block font-semibold uppercase">Password</label>
-              <Input type="password" id="password" className="text-gray-300 bg-gray-700 border-none outline-none focus:ring-1 focus:ring-gray-800" />
+              <Input type="password" id="password" className="text-gray-200 bg-gray-700 border-none outline-none focus:ring-1 focus:ring-gray-800" />
             </div>
 
             <a href="#" className="text-blue-500 text-sm mb-4 hover:underline block text-left">
@@ -58,8 +49,8 @@ export default function LoginPage() {
 
         {/* Right Section (QR Code) */}
         <CardContent className="hidden w-2/5 md:flex flex-col items-center justify-center text-center px-0">
-          <QrCodeIcon className="w-40 h-40 text-white" />
-          <h3 className="text-white text-xl font-semibold mt-4">Log in with QR Code</h3>
+          <QrCodeIcon className="w-40 h-40" />
+          <h3 className="text-xl font-semibold mt-4">Log in with QR Code</h3>
           <p className="text-gray-400 mt-2">
             Scan this with the <b>Harmony mobile app</b> to log in instantly.
           </p>
