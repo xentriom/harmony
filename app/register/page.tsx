@@ -3,6 +3,7 @@ import Link from "next/link";
 import { BrandLogoAndName } from "@/components/brand";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
@@ -11,6 +12,24 @@ export const metadata: Metadata = {
 };
 
 export default function RegisterPage() {
+  const currentYear = new Date().getFullYear();
+  const maxYear = currentYear - 13;
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return (
     <div className="relative h-screen w-full flex items-center justify-center">
       {/* Logo & Name */}
@@ -48,18 +67,13 @@ export default function RegisterPage() {
                   <SelectValue placeholder="Month" />
                 </SelectTrigger>
                 <SelectContent className="bg-gray-700 text-gray-300 border-0 focus-visible:ring-0">
-                  <SelectItem value="january">January</SelectItem>
-                  <SelectItem value="february">February</SelectItem>
-                  <SelectItem value="march">March</SelectItem>
-                  <SelectItem value="april">April</SelectItem>
-                  <SelectItem value="may">May</SelectItem>
-                  <SelectItem value="june">June</SelectItem>
-                  <SelectItem value="july">July</SelectItem>
-                  <SelectItem value="august">August</SelectItem>
-                  <SelectItem value="september">September</SelectItem>
-                  <SelectItem value="october">October</SelectItem>
-                  <SelectItem value="november">November</SelectItem>
-                  <SelectItem value="december">December</SelectItem>
+                  <ScrollArea className="h-40">
+                    {months.map((month, i) => (
+                      <SelectItem key={month} value={`${i + 1}`}>
+                        {month}
+                      </SelectItem>
+                    ))}
+                  </ScrollArea>
                 </SelectContent>
               </Select>
               <Select>
@@ -67,9 +81,13 @@ export default function RegisterPage() {
                   <SelectValue placeholder="Day" />
                 </SelectTrigger>
                 <SelectContent className="bg-gray-700 text-gray-300 border-0 focus-visible:ring-0">
-                  {[...Array(31)].map((_, i) => (
-                    <SelectItem key={i + 1} value={`${i + 1}`}>{i + 1}</SelectItem>
-                  ))}
+                  <ScrollArea className="h-40">
+                    {[...Array(31)].map((_, i) => (
+                      <SelectItem key={i + 1} value={`${i + 1}`}>
+                        {i + 1}
+                      </SelectItem>
+                    ))}
+                  </ScrollArea>
                 </SelectContent>
               </Select>
               <Select>
@@ -77,10 +95,16 @@ export default function RegisterPage() {
                   <SelectValue placeholder="Year" />
                 </SelectTrigger>
                 <SelectContent className="bg-gray-700 text-gray-300 border-0 focus-visible:ring-0">
-                  {[...Array(100)].map((_, i) => {
-                    const year = new Date().getFullYear() - i;
-                    return <SelectItem key={year} value={`${year}`}>{year}</SelectItem>;
-                  })}
+                  <ScrollArea className="h-40">
+                    {[...Array(75)].map((_, i) => {
+                      const year = maxYear - i;
+                      return (
+                        <SelectItem key={year} value={`${year}`}>
+                          {year}
+                        </SelectItem>
+                      );
+                    })}
+                  </ScrollArea>
                 </SelectContent>
               </Select>
             </div>
