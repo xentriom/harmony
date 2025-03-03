@@ -22,9 +22,9 @@ export default function LoginPage() {
       </div>
 
       {/* Login Container */}
-      <Card className="z-10 flex flex-row w-full max-w-3xl gap-16 p-8 bg-slate-800 rounded-xl overflow-hidden shadow-xl border-none">
+      <Card className="z-10 flex flex-row w-[90vw] md:w-full md:max-w-3xl gap-16 p-8 bg-slate-800 rounded-xl overflow-hidden shadow-xl border-none">
         {/* Left Section (Login Form) */}
-        <CardContent className="flex flex-col justify-center w-3/5 px-0">
+        <CardContent className="flex flex-col justify-center w-full md:w-3/5 px-0">
           <div className="text-center">
             <h2 className="text-white text-3xl font-bold">Welcome back!</h2>
             <p className="text-gray-400 mb-6">We&apos;re so excited to see you again.</p>
@@ -54,7 +54,7 @@ export default function LoginPage() {
         </CardContent>
 
         {/* Right Section (QR Code) */}
-        <div className="w-2/5 flex flex-col items-center justify-center text-center">
+        <div className="hidden w-2/5 md:flex flex-col items-center justify-center text-center">
           <QrCodeIcon className="w-40 h-40 text-white" />
           <h3 className="text-white text-xl font-semibold mt-4">Log in with QR Code</h3>
           <p className="text-gray-400 mt-2">
