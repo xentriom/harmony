@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Harmony is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
     start_url: "/",
     display: "standalone",
-    background_color: "#fff",
-    theme_color: "#fff",
+    background_color: "#0f172b",
+    theme_color: "#0f172b",
     icons: [
       {
         src: "/favicon.ico",
