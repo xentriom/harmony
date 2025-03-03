@@ -6,7 +6,7 @@ import { QrCodeIcon } from "lucide-react";
 
 export default function LoginPage() {
   return (
-    <div className="relative h-screen w-full flex items-center justify-center bg-gray-900">
+    <div className="relative h-screen w-full flex items-center justify-center">
       {/* Background Image */}
       <Image
         src="/background.svg"
@@ -22,23 +22,23 @@ export default function LoginPage() {
       </div>
 
       {/* Login Container */}
-      <Card className="z-10 flex flex-row w-full max-w-3xl gap-0 p-8 bg-gray-800 rounded-xl overflow-hidden shadow-xl border-none">
+      <Card className="z-10 flex flex-row w-full max-w-3xl gap-16 p-8 bg-slate-800 rounded-xl overflow-hidden shadow-xl border-none">
         {/* Left Section (Login Form) */}
-        <CardContent className="flex flex-col justify-center w-12/20 px-0">
+        <CardContent className="flex flex-col justify-center w-3/5 px-0">
           <div className="text-center">
-            <h2 className="text-white text-2xl font-bold">Welcome back!</h2>
-            <p className="text-gray-400 text-sm mb-6">We&apos;re so excited to see you again.</p>
+            <h2 className="text-white text-3xl font-bold">Welcome back!</h2>
+            <p className="text-gray-400 mb-6">We&apos;re so excited to see you again.</p>
           </div>
 
           <div>
             <div className="text-left mb-4">
-              <label className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Email or Phone Number</label>
-              <Input type="email" className="bg-gray-700 border-none focus:ring-2 focus:ring-blue-500" />
+              <label htmlFor="email" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Email or Phone Number</label>
+              <Input type="email" id="email" className="text-gray-300 bg-gray-700 border-none focus:ring-1 focus:ring-gray-800" />
             </div>
 
             <div className="text-left mb-2">
-              <label className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Password</label>
-              <Input type="password" className="bg-gray-700 border-none focus:ring-2 focus:ring-blue-500" />
+              <label htmlFor="password" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Password</label>
+              <Input type="password" id="password" className="text-gray-300 bg-gray-700 border-none outline-none focus:ring-1 focus:ring-gray-800" />
             </div>
 
             <a href="#" className="text-blue-500 text-sm mb-4 hover:underline block text-left">
@@ -53,10 +53,8 @@ export default function LoginPage() {
           </div>
         </CardContent>
 
-        <div className="w-1/20"></div>
-
         {/* Right Section (QR Code) */}
-        <div className="w-7/20 flex flex-col items-center justify-center text-center">
+        <div className="w-2/5 flex flex-col items-center justify-center text-center">
           <QrCodeIcon className="w-40 h-40 text-white" />
           <h3 className="text-white text-xl font-semibold mt-4">Log in with QR Code</h3>
           <p className="text-gray-400 mt-2">
