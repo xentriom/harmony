@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandLogoAndName } from "@/components/brand";
+import { InputField } from "@/components/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { QrCodeIcon } from "lucide-react";
 
@@ -26,15 +26,8 @@ export default function LoginPage() {
           </div>
 
           <div>
-            <div className="text-left mb-4">
-              <label htmlFor="email" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Email or Phone Number</label>
-              <Input type="email" id="email" className="text-gray-200 bg-gray-700 border-none focus-visible:ring-0" />
-            </div>
-
-            <div className="text-left mb-2">
-              <label htmlFor="password" className="text-gray-300 text-xs mb- block font-semibold uppercase">Password</label>
-              <Input type="password" id="password" className="text-gray-200 bg-gray-700 border-none outline-none focus-visible:ring-0" />
-            </div>
+            <InputField id="email" display="Email or Phone Number" margin="mb-4"/>
+            <InputField id="password" display="Password" margin="mb-2" />
 
             <Link href="#" className="text-blue-500 text-sm mb-4 hover:underline block text-left">
               Forgot your password?

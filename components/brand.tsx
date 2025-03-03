@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 interface BrandLogoAndNameProps {
-    size: number
+  size: number
 }
 
 export function BrandLogoAndName({ size }: BrandLogoAndNameProps) {

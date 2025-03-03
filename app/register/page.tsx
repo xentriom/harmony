@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BrandLogoAndName } from "@/components/brand";
+import { InputField } from "@/components/input";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
@@ -39,25 +39,10 @@ export default function RegisterPage() {
       <Card className="flex flex-col w-[90vw] md:max-w-lg gap-2 p-8 bg-slate-800 rounded-xl shadow-2xl border-none">
         <CardTitle className="text-2xl text-white text-center mb-2">Create an account</CardTitle>
         <CardContent className="px-0">
-          <div className="text-left mb-3 md:mb-6">
-            <label htmlFor="email" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Email</label>
-            <Input type="email" id="email" className="text-gray-200 bg-gray-700 border-none focus-visible:ring-0" />
-          </div>
-
-          <div className="text-left mb-3 md:mb-6">
-            <label htmlFor="display_name" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Display Name</label>
-            <Input type="text" id="display_name" className="text-gray-200 bg-gray-700 border-none focus-visible:ring-0" />
-          </div>
-
-          <div className="text-left mb-3 md:mb-6">
-            <label htmlFor="username" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Username</label>
-            <Input type="text" id="username" className="text-gray-200 bg-gray-700 border-none focus-visible:ring-0" />
-          </div>
-
-          <div className="text-left mb-3 md:mb-6">
-            <label htmlFor="password" className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Password</label>
-            <Input type="password" id="password" className="text-gray-200 bg-gray-700 border-none focus-visible:ring-0" />
-          </div>
+          <InputField id="email" display="Email" />
+          <InputField id="display_name" display="Display Name" />
+          <InputField id="username" display="Username" />
+          <InputField id="password" display="Password" />
 
           <div className="text-left mb-3 md:mb-6">
             <label className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Date of Birth</label>
