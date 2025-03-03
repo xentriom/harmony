@@ -7,6 +7,7 @@ import { QrCodeIcon } from "lucide-react";
 export default function LoginPage() {
   return (
     <div className="relative h-screen w-full flex items-center justify-center bg-gray-900">
+      {/* Background Image */}
       <Image
         src="/background.svg"
         alt="Login Background"
@@ -21,7 +22,7 @@ export default function LoginPage() {
       </div>
 
       {/* Login Container */}
-      <Card className="z-10 flex flex-row w-full max-w-3xl p-8 bg-gray-800 rounded-xl overflow-hidden shadow-xl border-none">
+      <Card className="z-10 flex flex-row w-full max-w-3xl gap-0 p-8 bg-gray-800 rounded-xl overflow-hidden shadow-xl border-none">
         {/* Left Section (Login Form) */}
         <CardContent className="flex flex-col justify-center w-12/20 px-0">
           <div className="text-center">
@@ -57,8 +58,8 @@ export default function LoginPage() {
         {/* Right Section (QR Code) */}
         <div className="w-7/20 flex flex-col items-center justify-center text-center">
           <QrCodeIcon className="w-40 h-40 text-white" />
-          <h3 className="text-white text-lg font-semibold mt-4">Log in with QR Code</h3>
-          <p className="text-gray-400 text-sm mt-2">
+          <h3 className="text-white text-xl font-semibold mt-4">Log in with QR Code</h3>
+          <p className="text-gray-400 mt-2">
             Scan this with the <b>Harmony mobile app</b> to log in instantly.
           </p>
           <a href="#" className="text-blue-500 text-sm mt-4 hover:underline">
