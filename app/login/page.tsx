@@ -17,7 +17,7 @@ export default function LoginPage() {
       />
 
       {/* Logo & Name */}
-      <div className="absolute top-10 left-10 text-white text-2xl font-bold">
+      <div className="absolute top-5 left-5 text-white text-2xl font-bold">
         <div className="flex flex-row items-center gap-2">
           <Image src="/logo.svg" alt="Harmony Logo" width={40} height={40} />
           <p>Harmony</p>
