@@ -38,39 +38,25 @@ export async function signupAction(formData: FormData) {
 
   const { data, error } = await supabase.auth.signUp({ email, password });
   if (error) {
+    console.error(error);
     redirect("/error");
   }
 
-  let publicId: string = "";
-  let isUnique = false;
-
-  while (!isUnique) {
-    publicId = await generateUID();
-    const { data: existingUser } = await supabase
-      .from("users")
-      .select("id")
-      .eq("uid", publicId)
-      .single();
-
-    if (!existingUser) isUnique = true;
-  }
-
   if (data?.user) {
-    const { error: profileError } = await supabase.from("users")
+    const { error: profileError } = await supabase
+      .from("pending_registrations")
       .insert([{
-        id: data.user.id,             // Use the user ID from the auth table
-        uid: publicId,                // Generate a unique public ID (snowflake)
-        username: username,           // Use the username from the form
-        display_name: displayName,    // Use the display name from the form
-        avatar: null,                 // Avatar URL (null for now)
-        verified: true,               // User is verified
-        email: email,                 // Use the email from the form
-        banner: null,                 // Banner URL (null for now)
-        accent_color: null,           // Accent color (null for now)
-        dob: dob,                     // Date of birth from the form
+        id: data.user.id,
+        email,
+        username,
+        display_name: displayName,
+        dob
       }]);
 
-    if (profileError) redirect("/error");
+    if (profileError) {
+      console.error(profileError);
+      redirect("/error");
+    }
   }
 
   redirect("/login");
