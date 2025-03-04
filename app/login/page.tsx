@@ -1,55 +1,15 @@
-"use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-import { supabase } from "@/lib/supabase";
+import { login } from "@/app/login/action";
 
 import { BrandLogoAndName } from "@/components/brand";
 import { InputField } from "@/components/input";
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 import { QrCodeIcon } from "lucide-react";
 
 export default function LoginPage() {
-  const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleLogin = async () => {
-    setLoading(true);
-    setError("");
-
-    if (!email || !password) {
-      setError("Please fill out all fields.");
-      setLoading(false);
-      return;
-    }
-
-    try {
-      const { error } = await supabase.auth.signInWithPassword({ 
-        email, 
-        password 
-      });
-
-      if (error) {
-        setError(error.message);
-      } else {
-        router.push("/channels/me");
-      }
-    } catch (error) {
-      setError("An error occurred. Please try again.");
-      console.error(error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="relative h-screen w-full flex items-center justify-center">
       {/* Logo & Name */}
@@ -64,21 +24,20 @@ export default function LoginPage() {
             <p className="text-gray-400 text-base mb-6">We&apos;re so excited to see you again!</p>
           </div>
 
-          <div>
-            <InputField id="email" display="Email" value={email} onChange={(e) => setEmail(e.target.value)} margin="mb-4"/>
-            <InputField id="password" display="Password" value={password} onChange={(e) => setPassword(e.target.value)} type="password" margin="mb-2" />
+          <form>
+            <InputField id="email" name="email" display="Email" margin="mb-4"/>
+            <InputField id="password" name="password" display="Password" type="password" margin="mb-2" />
 
             <Link href="#" className="text-blue-500 text-sm mb-4 hover:underline block text-left">
               Forgot your password?
             </Link>
 
-            {error && <p className="text-red-500 text-sm text-center mb-2">{error}</p>}
-            <Button className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2" onClick={handleLogin} disabled={loading}>Log In</Button>
+            <Button formAction={login} className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2">Log In</Button>
 
             <p className="text-gray-400 text-sm mt-2">
               Need an account? <Link href="/register" className="text-blue-500 hover:underline">Register</Link>
             </p>
-          </div>
+          </form>
         </CardContent>
 
         {/* Right Section (QR Code) */}
