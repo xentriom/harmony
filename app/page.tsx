@@ -12,7 +12,7 @@ export default function LandingPage() {
             <Image src="/logo.svg" alt="Harmony Logo" width={40} height={40} />
             <h1 className="text-2xl font-semibold">Harmony</h1>
           </div>
-          <Link href="/login">
+          <Link href="/home">
             <Button variant="default" className="bg-blue-500 hover:bg-blue-600">
               Log In
             </Button>

@@ -7,4 +7,6 @@ export default async function App() {
   if (error || !data?.user) {
     redirect("/login");
   }
+  
+  redirect("/channels/me");
 }
