@@ -52,10 +52,10 @@ export default function RegisterPage() {
         <CardTitle className="text-2xl text-white text-center mb-2">Create an account</CardTitle>
         <CardContent className="px-0">
           <form>
-            <InputField id="email" name="email" display="Email" />
+            <InputField id="email" name="email" display="Email" required />
             <InputField id="display_name" name="display_name" display="Display Name" />
-            <InputField id="username" name="username" display="Username" />
-            <InputField id="password" name="password" display="Password" type="password"/>
+            <InputField id="username" name="username" display="Username" required />
+            <InputField id="password" name="password" display="Password" type="password" minLength={6} required />
 
             <div className="text-left mb-3 md:mb-6">
               <label className="text-gray-300 text-xs mb-1 block font-semibold uppercase">Date of Birth</label>

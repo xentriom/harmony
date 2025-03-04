@@ -6,9 +6,10 @@ interface InputFieldProps {
   display: string;
   type?: string;
   margin?: string;
+  [key: string]: any;
 }
 
-export const InputField = ({ id, name, display, type="text", margin }: InputFieldProps) => {
+export const InputField = ({ id, name, display, type="text", margin, ...props }: InputFieldProps) => {
   return (
     <div className={`text-left ${margin ? margin : "mb-3 md:mb-6"}`}>
       <label htmlFor={id} className="text-gray-300 text-xs mb-1 block font-semibold uppercase">{display}</label>
@@ -17,6 +18,7 @@ export const InputField = ({ id, name, display, type="text", margin }: InputFiel
         name={name}
         type={type} 
         className="text-gray-200 bg-gray-700 border-none focus-visible:ring-0" 
+        {...props}
       />
     </div>
   );
