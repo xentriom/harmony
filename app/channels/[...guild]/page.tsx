@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
-import { createClient } from '@/lib/supabase/server';
+import { redirect } from "next/navigation";
+import { createClient } from "@/lib/supabase/server";
 
 export default async function Guild({
   params,
@@ -9,9 +9,9 @@ export default async function Guild({
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getUser();
   if (error || !data?.user) {
-    redirect('/login');
+    redirect("/login");
   }
-  
+
   const [guildId, channelId] = (await params).guild;
   return <div>Viewing: {guildId} {channelId}</div>;
 }

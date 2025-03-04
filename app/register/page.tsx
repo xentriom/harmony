@@ -39,7 +39,7 @@ export default function RegisterPage() {
   ];
 
   const padNumber = (num: string, amount = 2): string => {
-    return num.toString().padStart(amount, '0');
+    return num.toString().padStart(amount, "0");
   };
 
   return (
