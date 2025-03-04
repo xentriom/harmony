@@ -13,5 +13,10 @@ export default async function DM() {
     redirect("/login");
   }
 
+  const { data: existingUser } = await supabase
+    .from("users")
+    .select("id");
+  console.log(existingUser);
+
   return <div>Viewing DMs</div>;
 }

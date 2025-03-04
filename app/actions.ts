@@ -45,7 +45,7 @@ export async function signupAction(formData: FormData) {
   let isUnique = false;
 
   while (!isUnique) {
-    publicId = generateUID();
+    publicId = await generateUID();
     const { data: existingUser } = await supabase
       .from("users")
       .select("id")
@@ -76,7 +76,7 @@ export async function signupAction(formData: FormData) {
   redirect("/login");
 }
 
-const generateUID = (): string => {
+export async function generateUID(): Promise<string> {
   // Harmony epoch (January 1, 2025 00:00:00 UTC) in milliseconds
   const HARMONY_EPOCH = 1735689600000;
   const timestamp = BigInt(Date.now() - HARMONY_EPOCH);
