@@ -5,6 +5,8 @@ import { signupAction } from "@/app/actions";
 
 import { BrandLogoAndName } from "@/components/brand";
 import { InputField } from "@/components/input";
+import { SubmitButton } from "@/components/submit-button";
+
 import { 
   Card, 
   CardContent, 
@@ -18,7 +20,6 @@ import {
   SelectValue 
 } from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
   title: "Harmony",
@@ -114,9 +115,9 @@ export default function RegisterPage() {
             </div>
 
             <div className="text-center mb-2">
-              <Button className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2" formAction={signupAction}>
+              <SubmitButton formAction={signupAction} pendingText="Registering..." className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2" >
               Continue
-              </Button>
+              </SubmitButton>
             </div>
 
             <p className="text-gray-400 text-xs">

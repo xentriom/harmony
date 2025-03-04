@@ -2,11 +2,11 @@ import Link from "next/link";
 import { type Metadata } from "next";
 
 import { loginAction } from "@/app/actions";
+import { SubmitButton } from "@/components/submit-button";
 
 import { BrandLogoAndName } from "@/components/brand";
 import { InputField } from "@/components/input";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 
 import { QrCodeIcon } from "lucide-react";
 
@@ -37,7 +37,9 @@ export default function LoginPage() {
               Forgot your password?
             </Link>
 
-            <Button formAction={loginAction} className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2">Log In</Button>
+            <SubmitButton formAction={loginAction} pendingText="Logging in..." className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2">
+              Log In
+            </SubmitButton>
 
             <p className="text-gray-400 text-sm mt-2">
               Need an account? <Link href="/register" className="text-blue-500 hover:underline">Register</Link>
