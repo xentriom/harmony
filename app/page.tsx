@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
   return (
@@ -12,16 +12,17 @@ export default function LandingPage() {
             <Image src="/logo.svg" alt="Harmony Logo" width={40} height={40} />
             <h1 className="text-2xl font-semibold">Harmony</h1>
           </div>
-
           <Link href="/login">
-            <Button className="bg-blue-500 hover:bg-blue-600">Log In</Button>
+            <Button variant="default" className="bg-blue-500 hover:bg-blue-600">
+              Log In
+            </Button>
           </Link>
         </nav>
       </div>
-      
+
       {/* Main Content */}
-      <div className="flex items-center justify-center h-screen">
-        <h1 className="text-4xl font-bold">Welcome to Harmony</h1>
+      <div className="flex flex-col items-center justify-center h-full">
+        Harmony~
       </div>
     </div>
   );
