@@ -1,12 +1,11 @@
 import { Input } from "@/components/ui/input";
 
-interface InputFieldProps {
+interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   id: string;
   name?: string;
   display: string;
   type?: string;
   margin?: string;
-  [key: string]: any;
 }
 
 export const InputField = ({ id, name, display, type="text", margin, ...props }: InputFieldProps) => {
