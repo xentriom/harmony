@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { type Metadata } from "next";
 
-import { login } from "@/app/login/action";
+import { loginAction } from "@/app/actions";
 
 import { BrandLogoAndName } from "@/components/brand";
 import { InputField } from "@/components/input";
@@ -8,6 +9,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 import { QrCodeIcon } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Harmony",
+};
 
 export default function LoginPage() {
   return (
@@ -32,7 +37,7 @@ export default function LoginPage() {
               Forgot your password?
             </Link>
 
-            <Button formAction={login} className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2">Log In</Button>
+            <Button formAction={loginAction} className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2">Log In</Button>
 
             <p className="text-gray-400 text-sm mt-2">
               Need an account? <Link href="/register" className="text-blue-500 hover:underline">Register</Link>

@@ -1,6 +1,7 @@
 import Link from "next/link";
+import { type Metadata } from "next";
 
-import { signup } from "@/app/register/action";
+import { signupAction } from "@/app/actions";
 
 import { BrandLogoAndName } from "@/components/brand";
 import { InputField } from "@/components/input";
@@ -18,6 +19,10 @@ import {
 } from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
+
+export const metadata: Metadata = {
+  title: "Harmony",
+};
 
 export default function RegisterPage() {
   const currentYear = new Date().getFullYear();
@@ -109,7 +114,7 @@ export default function RegisterPage() {
             </div>
 
             <div className="text-center mb-2">
-              <Button className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2" formAction={signup}>
+              <Button className="w-full bg-blue-500 hover:bg-blue-600 font-semibold py-2" formAction={signupAction}>
               Continue
               </Button>
             </div>
