@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 
-type Props = {
+interface Props {
   params: Promise<{ chatId: string }>
 }
 
@@ -10,10 +10,11 @@ export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
   const id = (await params).chatId;
+  const user = id;
   // Fetch username with id and use that in title
 
   return {
-    title: `Harmony | @${id}`,
+    title: `Harmony | @${user}`,
   };
 }
 
