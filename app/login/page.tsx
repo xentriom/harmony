@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { type Metadata } from "next";
+import type { Metadata } from "next";
 
 import { loginAction } from "@/app/actions";
 import { SubmitButton } from "@/components/submit-button";
