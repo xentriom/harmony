@@ -15,6 +15,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Harmony - Group Chat That's All Fun & Games",
   description: "Harmony is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
+  openGraph: {
+    type: "website",
+    url: "https://tndc.vercel.app",
+    title: "Harmony - Group Chat That's All Fun & Games",
+    description: "Harmony is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
+    siteName: "Harmony"
+  }
 };
 
 export default function RootLayout({

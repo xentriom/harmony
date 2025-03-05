@@ -10,8 +10,9 @@ export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
   const id = (await params).chatId;
-  const user = id;
+
   // Fetch username with id and use that in title
+  const user = id;
 
   return {
     title: `Harmony | @${user}`,

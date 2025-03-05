@@ -10,11 +10,13 @@ export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
   const { guildId, chatId } = await params;
-  const guildName = `${guildId}-${chatId}`;
+
   // Fetch guild and channel name with id and use that in title
+  const guildName = guildId;
+  const chatName = chatId;
 
   return {
-    title: `Harmony | ${guildName}`,
+    title: `Harmony | #${chatName} | ${guildName}`,
   };
 }
 
