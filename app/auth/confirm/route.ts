@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
       }
 
       let publicId: string = "";
-      let isUnique = false;
+      let isUnique: boolean = false;
     
       while (!isUnique) {
         publicId = await generateUID();

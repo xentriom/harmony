@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from "next/server";
 
 export const updateSession = async (request: NextRequest) => {
   // Create an unmodified response
-  let response = NextResponse.next({
+  let response: NextResponse = NextResponse.next({
     request: {
       headers: request.headers,
     },

@@ -79,5 +79,5 @@ export async function generateUID(): Promise<string> {
   const snowflake = (timestamp << 22n) | (workerId << 17n) | (processId << 12n) | sequence;
   
   // Convert to string and pad to ensure 18 digits
-  return snowflake.toString().padStart(18, '0');
+  return snowflake.toString().padStart(18, "0");
 };
