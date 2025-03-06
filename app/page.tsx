@@ -1,8 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { createClient } from "@/lib/supabase/server";
 
-export default function LandingPage() {
+export default async function LandingPage() {
+  let ctaText: string = "";
+  let ctaLink: string = "";
+
+  const supabase = await createClient();
+  const { data, error } = await supabase.auth.getUser();
+    
+  if (error || !data?.user) {
+    ctaText = "Log In";
+    ctaLink = "/login";
+  } else {
+    ctaText = "Open Harmony";
+    ctaLink = "/channels/me";
+  }
+
   return (
     <div className="relative h-screen w-full">
       {/* Nav Bar */}
@@ -12,9 +27,9 @@ export default function LandingPage() {
             <Image src="/logo.svg" alt="Harmony Logo" width={40} height={40} />
             <h1 className="text-2xl font-semibold">Harmony</h1>
           </div>
-          <Link href="/home">
+          <Link href={ctaLink}>
             <Button variant="default" className="bg-blue-500 hover:bg-blue-600">
-              Log In
+              {ctaText}
             </Button>
           </Link>
         </nav>
