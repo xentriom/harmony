@@ -30,7 +30,7 @@ export default function LoginPage() {
           </div>
 
           <form>
-            <InputField id="email" name="email" display="Email" margin="mb-4" required />
+            <InputField id="email" name="email" display="Email" type="email" margin="mb-4" required />
             <InputField id="password" name="password" display="Password" type="password" margin="mb-2" required />
 
             <Link href="#" className="text-blue-500 text-sm mb-4 hover:underline block text-left">

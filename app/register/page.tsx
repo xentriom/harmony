@@ -58,7 +58,7 @@ export default function RegisterPage() {
         <CardTitle className="text-2xl text-white text-center mb-2">Create an account</CardTitle>
         <CardContent className="px-0">
           <form>
-            <InputField id="email" name="email" display="Email" required />
+            <InputField id="email" name="email" display="Email" type="email" required />
             <InputField id="display_name" name="display_name" display="Display Name" />
             <InputField id="username" name="username" display="Username" required />
             <InputField id="password" name="password" display="Password" type="password" minLength={6} required />
