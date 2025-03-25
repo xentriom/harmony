@@ -4,6 +4,7 @@ import Link from "next/link";
 import { loginAction } from "@/app/actions";
 import { SubmitButton } from "@/components/submit-button";
 
+import type { Message } from "@/components/form-message";
 import { BrandLogoAndName } from "@/components/brand";
 import { InputField } from "@/components/input";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,9 +15,14 @@ export const metadata: Metadata = {
   title: "Harmony",
 };
 
-export default function LoginPage() {
+export default async function LoginPage(props: {
+  searchParams: Promise<Message>;
+}) {
+  const searchParams = await props.searchParams;
+  const searchError = Object.keys(searchParams).length > 0;
+
   return (
-    <div className="relative h-screen w-full flex items-center justify-center">
+    <div className="relative h-screen w-full flex items-center justify-center flex-col">
       {/* Logo & Name */}
       <BrandLogoAndName size={40} />
 
@@ -30,10 +36,10 @@ export default function LoginPage() {
           </div>
 
           <form>
-            <InputField id="email" name="email" display="Email" type="email" margin="mb-4" required />
-            <InputField id="password" name="password" display="Password" type="password" margin="mb-2" required />
+            <InputField id="email" name="email" display={searchError ? "Email - Login or Password is Inavlid." : "Email"} type="email" margin="mb-4" required searchError={searchError} />
+            <InputField id="password" name="password" display={searchError ? "Password - Login or Password is Invalid" : "Password"} type="password" margin="mb-2" required searchError={searchError} />
 
-            <Link href="#" className="text-blue-500 text-sm mb-4 hover:underline block text-left">
+            <Link href="#" className="text-blue-500 text-xs mb-4 hover:underline block text-left">
               Forgot your password?
             </Link>
 
@@ -41,8 +47,9 @@ export default function LoginPage() {
               Log In
             </SubmitButton>
 
-            <p className="text-gray-400 text-sm mt-2">
-              Need an account? <Link href="/register" className="text-blue-500 hover:underline">Register</Link>
+            <p className="text-gray-400 text-xs mt-2">
+              Need an account?{" "}
+              <Link href="/register" className="text-blue-500 hover:underline">Register</Link>
             </p>
           </form>
         </CardContent>

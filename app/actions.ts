@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import { encodedRedirect } from "@/lib/redirect";
 
 export async function loginAction(formData: FormData) {
   const supabase = await createClient();
@@ -15,11 +16,12 @@ export async function loginAction(formData: FormData) {
   const { error } = await supabase.auth.signInWithPassword(data);
 
   if (error) {
-    redirect("/login");
+    console.error(error);
+    return encodedRedirect("error", "/login", error.message);
   }
 
   revalidatePath("/channels/me");
-  redirect("/channels/me");
+  return redirect("/channels/me");
 }
 
 export async function signupAction(formData: FormData) {
@@ -39,7 +41,7 @@ export async function signupAction(formData: FormData) {
   const { data, error } = await supabase.auth.signUp({ email, password });
   if (error) {
     console.error(error);
-    redirect("/error");
+    return encodedRedirect("error", "/register", error.message);
   }
 
   if (data?.user) {
@@ -55,11 +57,15 @@ export async function signupAction(formData: FormData) {
 
     if (profileError) {
       console.error(profileError);
-      redirect("/error");
+      return encodedRedirect("error", "/register", profileError.message);
     }
   }
 
-  redirect("/login");
+  return encodedRedirect(
+    "success",
+    "/register",
+    "Thanks for registering! Please check your email for a verification link.",
+  );
 }
 
 export async function generateUID(): Promise<string> {

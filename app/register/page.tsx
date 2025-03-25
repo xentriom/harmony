@@ -4,6 +4,7 @@ import Link from "next/link";
 import { signupAction } from "@/app/actions";
 
 import { BrandLogoAndName } from "@/components/brand";
+import { type Message, FormMessage } from "@/components/form-message";
 import { InputField } from "@/components/input";
 import { SubmitButton } from "@/components/submit-button";
 
@@ -25,7 +26,18 @@ export const metadata: Metadata = {
   title: "Harmony",
 };
 
-export default function RegisterPage() {
+export default async function RegisterPage(props: {
+  searchParams: Promise<Message>;
+}) {
+  const searchParams = await props.searchParams;
+  if ("message" in searchParams) {
+    return (
+      <div className="w-full flex-1 flex items-center h-screen sm:max-w-md justify-center gap-2 p-4">
+        <FormMessage message={searchParams} />
+      </div>
+    );
+  }
+
   const currentYear = new Date().getFullYear();
   const maxYear = currentYear - 13;
 
@@ -121,7 +133,10 @@ export default function RegisterPage() {
             </div>
 
             <p className="text-gray-400 text-xs">
-            By registering, you agree to Harmony&apos;s <Link href="/terms" className="text-blue-500 hover:underline">Terms of Service</Link> and <Link href="/privacy" className="text-blue-500 hover:underline">Privacy Policy</Link>.
+            By registering, you agree to Harmony&apos;s{" "}
+              <Link href="/terms" className="text-blue-500 hover:underline">Terms of Service</Link>
+              {" "}and{" "}
+              <Link href="/privacy" className="text-blue-500 hover:underline">Privacy Policy</Link>.
             </p>
 
             <Link href="/login" className="text-xs text-blue-500 hover:underline">Already have an account?</Link>
